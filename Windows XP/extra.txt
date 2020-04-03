@@ -1,0 +1,37 @@
+/mnt/Datavault/Work/Packaging/pdl-winnt/extra:
+total 861860
+-rw-r--r-- 1 byteframe users   2071896 Feb 10  2012 HP\ USB\ Boot\ Utility.exe
+-rw-r--r-- 1 byteframe users 211062784 Feb 25  2012 LibO_3.5.0_Win_x86_install_multi.msi
+-rw-r--r-- 1 byteframe users  24758792 Feb 10  2012 NetFx20SP1_x86.exe
+-rw-r--r-- 1 byteframe users  41897774 Feb 10  2012 clamwin-0.97.3-setup.exe
+drwxr-xr-x 2 byteframe users      4096 Mar  9  2012 drivers/
+-rw-r--r-- 1 byteframe users  33129472 Feb 10  2012 evince-2.32.0.145.msi
+-rw-r--r-- 1 byteframe users  23918572 Feb 10  2012 gedit-setup-2.30.1-1.exe
+-rw-r--r-- 1 byteframe users   6117077 Feb 10  2012 grsync-setup-0.6.3.exe
+-rw-r--r-- 1 byteframe users   2665796 Feb 10  2012 nLite-1.4.9.1.installer.exe
+-rw-r--r-- 1 byteframe users        39 Feb 10  2012 oeminfo.ini
+-rw-r--r-- 1 byteframe users     40054 Feb 10  2012 oemlogo.bmp
+-rw-r--r-- 1 byteframe users   1597060 Feb 25  2012 putty-0.6.2.zip
+
+/mnt/Datavault/Work/Packaging/pdl-winnt/extra/drivers:
+total 504456
+-rw-r--r-- 1 byteframe users 14712768 Feb 10  2012 AMD\ 1.3.2.0053\ Processor.exe
+-rw-r--r-- 1 byteframe users 27237728 Feb 10  2012 AMD\ 10.12\ Video.exe
+-rw-r--r-- 1 byteframe users  2629120 Feb 10  2012 Belkin\ F5D7050v2\ WiFi.exe
+-rw-r--r-- 1 byteframe users    84304 Feb 10  2012 BioStar\ A770\ A2+\ 1.0.0.0\ SMIBUS.zip
+-rw-r--r-- 1 byteframe users 32014815 Feb 10  2012 BioStar\ A770\ A2+\ 5.10.0.6299\ Audio.exe
+-rw-r--r-- 1 byteframe users  4881920 Feb 10  2012 BioStar\ A770\ A2+\ 5.708.1030.2008\ Ethernet.exe
+-rw-r--r-- 1 byteframe users 11491352 Feb 10  2012 Compaq\ Presario\ SR1010NX\ 5.10.0.5730\ Audio.exe
+-rw-r--r-- 1 byteframe users  6668240 Feb 10  2012 Compaq\ Presario\ SR1010NX\ 6.14.10.3943\ Video.exe
+-rw-r--r-- 1 byteframe users 11961648 Feb 10  2012 Epson\ Stylus\ CX4450\ 3.06a\ Scanner.exe
+-rw-r--r-- 1 byteframe users  5443056 Feb 10  2012 HP\ Photosmart\ 1115\ 3.5\ Printer.exe
+-rw-r--r-- 1 byteframe users  4364272 Mar  2  2012 IBM\ ThinkCentre\ M51\ Audio.exe
+-rw-r--r-- 1 byteframe users 67076696 Mar  2  2012 IBM\ ThinkCentre\ M51\ Ethernet.exe
+-rw-r--r-- 1 byteframe users  5509448 Mar  2  2012 IBM\ ThinkCentre\ M51\ Video.exe
+-rw-r--r-- 1 byteframe users 77292682 Feb 10  2012 M4A785TD-M\ EVO\ 5.10.1000.8_1.3.0.49\ Chipset.zip
+-rw-r--r-- 1 byteframe users  5647619 Feb 10  2012 M4A785TD-M\ EVO\ 5.736.728.2009\ Ethernet.zip
+-rw-r--r-- 1 byteframe users 52010240 Feb 10  2012 M4A785TD-M\ EVO\ 6.0.1.7900\ Audio.zip
+-rw-r--r-- 1 byteframe users 49559792 Feb 10  2012 NVIDIA\ 15.46\ Chipset.exe
+-rw-r--r-- 1 byteframe users 98628384 Feb 25  2012 NVIDIA\ 295.73\ Video.exe
+-rw-r--r-- 1 byteframe users  6502693 Feb 10  2012 Netgear\ WG111v2\ 4.0.0\ WiFi.zip
+-rw-r--r-- 1 byteframe users 32811469 Feb 25  2012 Realtek\ 2.67\ Audio.exe

@@ -1,0 +1,72 @@
+-------------------------------------------------------------------------------- [INSTALL]
+Without network, Use local domain signin, Disable telemetry options
+Install Nvidia/Drivers
+Enable Network private/public | file sharing
+Set timezone, format
+if dual_boot
+  reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
+ADDONS: net35,net47,media,pdf,xps,p+d(1,4),rdiff,smbdirect,pshell,workfolders | ie,hyperv
+FEATURES: quick assist, internet explorer, windows media
+REGISTRY: Photoviewer.reg + Remove-Folders-From-This-PC-on-Windows-10.reg
+https://windowsable.com/how-to-hide-removable-drives-from-the-navigation-pane-in-windows-10/
+Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData
+Host/Workgroup
+Reboot
+Update (configure settings below during this time)
+-------------------------------------------------------------------------------- [SETTINGS] ! in both, * in settings
+ protection: [-] disable system restore and delete backups
+     remote: [-] disable remote assistance, allow other clients and/or disable rdp)
+    privacy: [*] disable all in windows permissions section
+personalize: [*] storm on accents, no trans | black x-large mouse, desktop icons, wallpaper/loginscreen
+    taskbar: [*] hide people,search | small, top, always show icons, appropriate system icons
+  startmenu: [*] disable three store options, disable side options
+     gaming: [*] disable game bar, check game mode
+     notify: [*] disable
+   autoplay: [!] disable
+      sound: [-] nosounds/donothingonmic
+    folders: [-] -frequently,+iconsNotThumbnails/-hideExtensions|wmButtons
+      power: [!] times, plan
+       perf: [-] disable all but (shadows, show tn, translucent, contents, smooth font)
+     nvidia: [-] remove icons
+-------------------------------------------------------------------------------- [APPLICATIONS]
+       7zip: remove shell context menus
+   chromium: downloads, signin
+        mpv: extract to program_files, run installer, set default, manual sm icon, specific confs, youtube-dl
+     cygwin: install basic set
+   transbtq: 30kb/compactetc/nooption/autostart/trash/port/starttray/nosound
+  notepadpp: obsidian.xml theme
+     nodejs: set user NODE_PATH=C:\Users\byteframe\AppData\Roaming\npm\node_modules
+imagemagick: icon, check system path
+       gimp: no addons, miscellaneous associations
+   viveport: install after first steam login
+    steamvr: quick access link, startup params, beta, steam.cfg
+  obsstudio: openvr plugin (12.0.30501.01  2013 (x86/x64) SteamVR (x86/x64) + OBS)
+  openvrset: run installer after steamvr is installed
+     oculus: login, updates
+     revive: run installer after steamvr is installed
+-------------------------------------------------------------------------------- [DEPRECATED]
+powercfg.exe /hibernate off
+Configure auto login
+Startup/Rec: disable write event system log / automatic restart / dumping
+https://www.tenforums.com/tutorials/40119-enable-disable-automatic-maintenance-windows-10-a.html
+https://www.intowindows.com/how-to-remove-share-from-file-context-menu-in-windows-10/
+uac: disable all
+Disable Offline Files
+defender: gpedit: CC/AT/WindowsComponents/WindowsDefender
+maps: disable auto update
+Add: NET_Framework_3.5, SMB/CIFS 1.0 Support
+Remove: InternetExplorer, Media, RemoteDiff, SMB_Direct, PrintToPDF, WorkFolders, XPSWriter
+Decide: Print_Document
+nvidia: remove icon, set maximum 3d performance
+gedit: settings, disable spell checking
+steamvr: beta and other games then remove entires from regedit
+security: disable features and notifications, see firewall, disable in taskmgr>startup
+maintenance: remove all security/maintenance checks
+signin: disable password on resume
+network: turn off network discovery for private networks
+gpedit: CC>Admin>System>Internet>Internet {turn off windows error reporting}
+Mount Share, Disable Other Sources, Update
+taskbar: ...dont use powershell...
+SERVICES Search|Program Compat|Print Spool*|XboxLive (x4)
+folders: /-sharingWizard|alwaysNotIndex|
+index: delete/rebuild database, delete c:\programdata\microsoft\search, disable on drives

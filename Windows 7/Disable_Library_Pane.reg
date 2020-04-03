@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+; https://www.mydigitallife.info/how-to-remove-and-hide-libraries-group-from-navigation-pane-of-windows-7-explorer/
+
+[HKEY_CLASSES_ROOT\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}\ShellFolder]
+"Attributes"=dword:b090010d

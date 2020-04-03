@@ -1,0 +1,97 @@
+[INSTALL]
+  Ultimate x64 DAZ / Delete Partitions / Hint 'null' / Ask Later / Timezone
+
+[MY_COMPUTER]
+    Workgroup: set, don't reboot
+  Startup/Rec: disable write event system log / automatic restart / dumping
+   Protection: disable system restore and delete Backups
+       Remote: disable remote assistance, allow other clients (or disable)
+
+[NETPLWIZ]
+  Configure auto login
+
+[REGEDIT]
+  reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
+
+[KEEP ADDONS]
+  NET Framework 3.5.2
+  Windows Search
+  Print*
+
+[DRIVERS]
+  Network: Intel/Win7_win8.1/Pro1000/Winx64/ndis62
+  USB3Hub: 2 devices, 8086_8cb1
+   Nvidia: GPU/Audio Driver Only, remove icon, set maximum 3d performance
+
+[NETWORK]
+  network: disable dhcp/lltd/ipv6/server, always public/passwords/discovery
+   gpedit: Computer>Admin>System>Internet>Internet {Turn off active tests}
+
+[WINDOWS_UPDATE]
+  configure/update, then install xbox360 optional driver, and usb5734 driver
+
+[START MENU/TASKBAR]
+  unpin taskbar defaults and rename computer
+  colate accessories into their respective locations
+  delete computer/controlpanel/run/explorer/update/default/restore
+  taskbar: always show icons, disable aero peek
+  startmenu: disable both store options
+  customize: keep computer/cp menu, context menus/submenus, search public/cp, sort by name, small icons
+
+[DISABLE SERVICES]
+  Security Center
+  Windows Backup
+  Windows Card Space
+  Windows Defender
+  Windows Error Reporting Service
+  Windows Search
+  Program Compatibility Assistant Service
+  Print Spooler*
+
+[SETTINGS]
+      firewall: disable both options
+  actioncenter: disable any remaining notifcations, disable uac notifcations
+      autoplay: disable all
+       folders: +iconsNotThumbnails/-hideExtensions/-sharingWizard|alwaysNotInde
+   personalize: aero slate max color no t, black mouse, icons, wallpaper
+         sound: disable devices/sounds/welcome/listener/donothingonmic
+         power: high performance, 15m/4h, disable usb suspend, no password on resume
+           cmd: as admin run powercfg.exe /hibernate off
+         index: delete/rebuild database, delete c:\programdata\microsoft\search
+          perf: disable animation/glass/fades/tumbnailsx2/slidecombobox/aero
+
+[APPLICATIONS]
+  chromium: unpin, downloads, signin, unbackground
+       mpv: extract to programfiles, run installer, set default, manual sm icon, mpv.conf
+     steam: install, console, msconfig, beta, settings, files
+
+[STEAM_VR]
+  transbtq: 30kb/compactetc/nooption/autostart/trash/port/starttray/nosound
+      7zip: open as admin then disable shell menus
+     gedit: settings XXX spell checking
+  handrake: sm icon
+   hexchat: no addons, sm icon, copy 2 conf files
+     putty: no icon, path, file extension
+  tigervnc: no service/startup, keep just client sm
+      leap: install, disable avoid/startup/update/web/bg/data, use low mode
+    oculus: run with /bypassHotfixCheck, login
+ openvrset: extract to steamapps
+    revive: extract to steamapps
+   steamvr: beta and other games then remove entires from regedit, settings/room
+   directx: install, redistributable
+ obsstudio: keep x64 sm XXX directx tho and vcredits
+  viveport: XXX needs dotnet46
+
+[STEAM_STREAM]
+  Add 'aspect=16:9\nloop=inf\nshuffle=yes' to mpv.conf XXX fps30 and the framedrop in mpv.conf pythagoras LOOP
+  "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4D36E96C-E325-11CE-BFC1-08002BE10318}\0000\GlobalSettings\EnableDynamicDevices" 0
+
+[TWEAKS/GPEDIT]
+  MSCONFIG.exe
+  Disable_Library_Pane (INSTRUCTIONS,RUN)
+
+[MISCELLANEOUS]
+  Delete users/contacts+favorites,+searches c/perflogs, c/nvidia
+  10.0.40219.325 2010 (x86/x64) SteamVR (x86) + YoutubeDL
+  12.0.30501.01  2013 (x86/x64) SteamVR (x86/x64) + OBS
+  14.0.24215.1   2015 (x86/x64) Games

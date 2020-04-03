@@ -1,0 +1,53 @@
+pdl-winnt CHANGELOG
+-------------------
+
+0.1.0
+  + initial with April 2008
+
+0.1.1
+  + unattended: embed serial key
+  + unattended: set timezone
+
+0.1.2
+  + update: add KB898461 to KB981793
+  + addons: firefox 3.6.3
+  + run_once: remove firefox desktop icon
+  + extras: common drivers, adobe-reader-8.20, cccp-2009-09-09, ccleaner-2.32,
+    cpu-z-1.5.4, infrarecorder-0.50, inkscape-0.47.3, jre-6u20, ooo-3.2.0,
+    pidgin-2.7.0, utorrent-2.02
+
+0.1.3
+  + new base iso "biexpp111" January 2011
+  + addons: 7zip-9.20, cccp-10.10.2010, firefox-3.6.13, gimp-2.6.11,
+    infrarecorder-0.51, inkscape-0.48, pidgin-2.7.9
+  + remove: web folders
+  + use classic login
+  + include: internet explorer (8), intel indeo codecs, scanner drivers
+  + unattended: revert "programs" directory to "Program Files"
+  + unattended: change default root password
+  + unattended: set automatic update to "notify before download"
+  + runonce: remove all *.lnk files on desktop
+  + runonce: move games into accessories
+  + runonce: deleting "programs\ComPlus Applications" is no longer necessary
+  + start menu: enable "My Network Places" as a link
+  + start menu: remove windows update shortcut
+  + readme with instructions in extra
+  + extras: only clamwin-0.96.5, evince-2.30.3, gedit-2.30.1-1, gsrync-0.6.3,
+    libreoffice-3.3.0rc4, utorrent 2.2
+
+0.1.4
+  + start with new iso "biexpp411" April 2011
+  + addons: firefox-4.0, infrarecorder-0.52, inkscape 0.48.1, jre-6.25,
+    pidgin-2.7.11, putty-0.6.0
+  + include: mouse cursors, windows media player
+  + remove: help and support, alerter service, application layer gateway service
+  + runonce: clean up, move infrarecorder to programs
+  + tweaks: enable cursor shadow, accept privacy statement,
+    disable auto-add music to library, disable automatic codec download,
+    disable metadata retrieval, disable MRU, disable silent acquisition,
+    disable starting with media guide, enhanced privacy settings,
+    remove all context menu entries
+  + services: disable distributed transaction coordinator, smart card,
+    terminal services, themes
+  + extras: clamwin-0.97, evince-2.32.0, libreoffice-3.3.2, netframework-2.0_SP1
+    nlite-1.4.9.1, utorrent-2.2.1

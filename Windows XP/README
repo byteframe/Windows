@@ -1,0 +1,28 @@
+Build
+- install nlite / dotnet20
+- mount stock iso, start nlite, copy to C:\pdl-winnt-x.x.x
+- import previous settings
+- copy addons to C:\, add all, sort by name column
+- modify
+- process
+- copy extra (with README, and CHANGELOG) to C:\pdl-winnt-x.x.x
+- move ini files out of C:\pdl-winnt-x.x.x
+- create iso with pdl-winnt-x.x.x label and filename
+
+Post Install as root:
+- windows update, skip WGA and malicious software tools
+- install virtual box quest additions (if necessary)
+- start 7-zip, associate with all but zip, remove shell context menu
+- create user, reboot
+
+Post Install as main:
+- disable tray icons, and associate with icons to mpc in cccp settings
+- rename "My Computer" to hostname
+- rename "My Documents" to username
+- rename "My Network Places" to "Network"
+- delete "My Music" and "My Pictures"
+- clear favorites
+- screensaver
+- move ie and wmp into accessories, delete system tools, sort by name
+- start firefox importing nothing, making it default, install adblock
+- install extras to taste
