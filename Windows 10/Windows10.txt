@@ -1,24 +1,27 @@
--------------------------------------------------------------------------------- [INSTALL]
+------------------------------------------------------------------------------- [INSTALL]
 Without network, Use local domain signin, Disable telemetry options
-Install Nvidia/Drivers
+Install Nvidia/Drivers (uninstall nvidia app and disable display container service)
 Enable Network private/public | file sharing
 Set timezone, format
+Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData
+Install WSL feature ^if needed
+Uninstall Internet Explorer 11, Windows Hello Face, and Microsoft Quick Assist
+Disable Print Spooler Service
+Host/Workgroup
+powercfg.exe /hibernate off ^ if desktop
 REGISTRY: Photoviewer.reg + Remove-Folders-From-This-PC-on-Windows-10.reg
 https://windowsable.com/how-to-hide-removable-drives-from-the-navigation-pane-in-windows-10/
-Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData
-Install WSL feature if needed
-Host/Workgroup
-powercfg.exe /hibernate off
-Reboot
 Update (configure settings below during this time)
--------------------------------------------------------------------------------- [SETTINGS] ! in both, * in settings
+Reboot
+-------------------------------------------------------------------------------- [SETTINGS]
  protection: [-] disable system restore and delete backups
      remote: [-] disable remote assistance, allow other clients and/or disable rdp)
     privacy: [*] disable all in windows permissions section
-personalize: [*] storm on accents, no trans | black large mouse, desktop icons, wallpaper/loginscreen
-    taskbar: [*] hide people,search | small, top, always show icons, appropriate system icons
+personalize: [*] storm, no trans | black large mouse, desktop icons, wallpaper/loginscreen
+    taskbar: [*] hide people,search | small, top, always show icons, appropriate system icons, use cmd
   startmenu: [*] disable three store options, disable side options, hide taskview
      gaming: [*] disable game bar and game mode
+       maps: [*] disable auto update
      notify: [*] disable
    autoplay: [!] disable
       sound: [-] nosounds/donothingonmic
@@ -26,51 +29,59 @@ personalize: [*] storm on accents, no trans | black large mouse, desktop icons, 
       power: [!] times, plan
        perf: [-] disable all but (shadows, translucent, contents, smooth font)
      nvidia: [-] remove icons
+    devmgmt: [!] stop mice from waking pc
+-------------------------------------------------------------------------------- [CHROMIUM]
+settings: (account name, search, continue, downloads, -background, -hw)
+import bookmarks
+set password flag, import, revert flag
+extensions: adblock, disconnect, tampermonkey (share.js), augmented steam, steamdb
 -------------------------------------------------------------------------------- [APPLICATIONS]
-   chromium: downloads, signin
-        mpv: extract to program_files, run installer, set default, manual sm icon, specific confs, youtube-dl
-  notepadpp: obsidian.xml theme and/or config restore
-    steamvr: quick access link, startup params, beta, steam.cfg
-  obsstudio: openvr plugin (12.0.30501.01  2013 (x86/x64) SteamVR (x86/x64) + OBS)
-  openvrset: run installer after steamvr is installed
-   viveport: install after first steam login, uninstall magnet engine in programdata/packagecache
-     oculus: login, updates, install virtual desktop dtreamer, disable service, and clear cache
-  sidequest: install, login, allow in headset
-googledrive: install, sync and run regedit file
-afterburner: install +100%,+100,+500,+108,@90c
--------------------------------------------------------------------------------- [DEPRECATED]
-archlinux wsl install
-revive: run installer after steamvr is installed
-nodejs: set user NODE_PATH=C:\Users\byteframe\AppData\Roaming\npm\node_modules
-imagemagick: icon, check system path
-gimp: no addons, miscellaneous associations
-cygwin: install basic set
-transbtq: 30kb/compactetc/nooption/autostart/trash/port/starttray/nosound
-7zip: remove shell context menus
-if dual_boot reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation" /v RealTimeIsUniversal /d 1 /t REG_DWORD /f
-ADDONS: net35,net47,media,pdf,xps,p+d(1,4),rdiff,smbdirect,pshell,workfolders | ie,hyperv
-FEATURES: quick assist, internet explorer, windows media
-Configure auto login
-Startup/Rec: disable write event system log / automatic restart / dumping
-https://www.tenforums.com/tutorials/40119-enable-disable-automatic-maintenance-windows-10-a.html
-https://www.intowindows.com/how-to-remove-share-from-file-context-menu-in-windows-10/
-uac: disable all
-Disable Offline Files
-defender: gpedit: CC/AT/WindowsComponents/WindowsDefender
-maps: disable auto update
-Add: NET_Framework_3.5, SMB/CIFS 1.0 Support
-Remove: InternetExplorer, Media, RemoteDiff, SMB_Direct, PrintToPDF, WorkFolders, XPSWriter
-Decide: Print_Document
-nvidia: remove icon, set maximum 3d performance
-gedit: settings, disable spell checking
-steamvr: beta and other games then remove entires from regedit
-security: disable features and notifications, see firewall, disable in taskmgr>startup
-maintenance: remove all security/maintenance checks
-signin: disable password on resume
-network: turn off network discovery for private networks
-gpedit: CC>Admin>System>Internet>Internet {turn off windows error reporting}
-Mount Share, Disable Other Sources, Update
-taskbar: ...dont use powershell...
-SERVICES Search|Program Compat|Print Spool*|XboxLive (x4)
-folders: /-sharingWizard|alwaysNotIndex|
-index: delete/rebuild database, delete c:\programdata\microsoft\search, disable on drives
+496.49-desktop-win10-win11-64bit-international-dch-whql
+ArchWSL-AppX_20.11.25.0_x64.appx
+ArchWSL-AppX_20.11.25.0_x64.cer
+vcxsrv-64.1.20.9.0.installer.exe
+pulseaudio-1.1.zip
+mini_installer.exe (chromium.woolyss.com)
+npp.8.1.5.Installer.exe (config restore?)
+GoogleDriveSetup.exe (Remove_Google_Drive_context_menu.reg)
+OBS_OpenVR_InputPlugin_v1.11.zip
+OBS-Studio-26.1.1-Full-Installer-x64.exe
+OculusSetup.exe
+SideQuest-Setup-0.10.24-x64-win.exe
+SteamSetup.exe (-console -no-browser, BootStrapperInhibitAll=enable\nBootStrapperForceSelfUpdate=disable)
+ViveportSetup.exe
+alvr_server_windows-16.0.0.zip
+alvr_client_oculus_quest-16.0.0.apk
+AdvancedSettings-5.3.2-Installer.exe
+SteamAchievementManager-7.0.25.zip
+-------------------------------------------------------------------------------- [CLEANUP]
+C:\Users\byteframe\Documents\steamvr
+C:\ProgramData\HTC\Vive
+C:\ProgramData\HTC\ViveSoftware\Updater
+C:\ProgramData\HTC\ViveSoftware\ViveApps\65d812
+C:\Program Files (x86)\Common Files\HTC\Vita
+C:\Program Files (x86)\VIVE\PCClient\installLog*.txt
+C:\Program Files (x86)\VIVE\Updater\viveNight*.png
+C:\Program Files (x86)\VIVE\Updater\App\VivePair
+C:\Program Files (x86)\VIVE\Updater\App\BIFlush
+C:\Program Files (x86)\VIVE\Updater\App\BTDriverUpdater
+C:\Program Files (x86)\VIVE\Updater\App\Dashboard
+C:\Program Files (x86)\VIVE\Updater\App\Launchers
+C:\Program Files (x86)\VIVE\Updater\Temp
+C:\Program Files (x86)\VIVE\Updater\Meta\*.?
+C:\Program Files (x86)\VIVE\Updater\Uninstall\VIVEEYE_SOFTWARE
+C:\Program Files (x86)\VIVE\Updater\NewUpdater\App
+C:\Program Files (x86)\VIVE\Updater\NewUpdater\Meta
+C:\Program Files (x86)\VIVE\Updater\NewUpdater\Temp
+C:\Users\byteframe\AppData\Local\HTC\MagnetWidget
+C:\Users\byteframe\AppData\Local\HTC\Vive
+C:\Users\byteframe\AppData\Local\HTC\Viveport\Cache
+C:\Users\byteframe\AppData\Local\HTC\Viveport\Download
+C:\Users\byteframe\AppData\Local\HTC\Viveport\WebCache
+C:\Users\byteframe\AppData\Local\HTC\Viveport\VivePortLauncher_*.log.txt
+C:\Users\byteframe\AppData\Local\HTC\Viveport\Logs
+C:\Users\byteframe\AppData\Local\HTC\Viveport\SteamVR
+C:\Users\byteframe\AppData\Local\SteamVR
+C:\Users\byteframe\AppData\Local\Steam\htmlcache
+C:\Users\byteframe\AppData\Local\ToastNotificationManagerCompat
+C:\Users\byteframe\AppData\Local\Temp\*.?
