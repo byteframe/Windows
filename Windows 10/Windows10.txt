@@ -1,87 +1,69 @@
 ------------------------------------------------------------------------------- [INSTALL]
 Without network, Use local domain signin, Disable telemetry options
 Install Nvidia/Drivers (uninstall nvidia app and disable display container service)
-Enable Network private/public | file sharing
+Enable Network private/public | file/media sharing (set default settings to allow only video)
+Assign library folders (Documents, D:/Image, D:/Audio, D:/Video)
 Set timezone, format
-Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData
-Install WSL feature ^if needed
-Uninstall Internet Explorer 11, Windows Hello Face, and Microsoft Quick Assist
+Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData | hide Perflogs
+Add-AppxPackage -Path "C:\Users\byteframe\Desktop\Microsoft.HEVCVideoExtension_1.0.32022.0_x64.Appx"
+Install WSL/HyperV/VirtualMachinePlatform features ^if needed
+Uninstall Internet Explorer 11, Windows Hello Face, and Microsoft Quick Assist, Nvidia/Realtek
 Disable Print Spooler Service
 Host/Workgroup
-powercfg.exe /hibernate off ^ if desktop
+powercfg.exe /hibernate off
+powercfg /requestsoverride process wmplayer.exe display system
+powercfg /requestsoverride process steamtours.exe display system
+powercfg /requestsoverride process OVRServer_x64.exe display 
+powercfg /requestsoverride process vrcompositor.exe display 
+powercfg /requestsoverride process vrwebhelper.exe display 
 REGISTRY: Photoviewer.reg + Remove-Folders-From-This-PC-on-Windows-10.reg
-https://windowsable.com/how-to-hide-removable-drives-from-the-navigation-pane-in-windows-10/
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83} (add minus)
 Update (configure settings below during this time)
 Reboot
+https://gist.github.com/ishad0w/d25ca52eb04dbefba8087a344a69c79c
+wsl_update_x64.msi
+wsl --set-default-version 2
 -------------------------------------------------------------------------------- [SETTINGS]
+		    cmd: [-] set defaults font to size 14
+  developer: [-] install apps from any source
  protection: [-] disable system restore and delete backups
-     remote: [-] disable remote assistance, allow other clients and/or disable rdp)
-    privacy: [*] disable all in windows permissions section
-personalize: [*] storm, no trans | black large mouse, desktop icons, wallpaper/loginscreen
-    taskbar: [*] hide people,search | small, top, always show icons, appropriate system icons, use cmd
-  startmenu: [*] disable three store options, disable side options, hide taskview
-     gaming: [*] disable game bar and game mode
+     remote: [-] disable remote assistance, allow other clients?)
+    privacy: [*] disable all in windows permissions section, voice activcation in apps
+personalize: [*] storm, no trans, show on both accents | black large mouse, desktop icons, wallpaper/loginscreen
+    taskbar: [*] hide people,search | small, always show icons, appropriate system icons, use cmd
+  startmenu: [*] disable three store options, disable side icons, hide taskview, combine shortcuts
+     gaming: [*] disable game bar
        maps: [*] disable auto update
-     notify: [*] disable
+     notify: [*] disable notifications and suggestions
+maintenance: [!] disable wake up
    autoplay: [!] disable
+   keyboard: [!] disable shortcuts for toggle+sticky+filter keys
       sound: [-] nosounds/donothingonmic
-    folders: [-] -frequently,+iconsNotThumbnails/-hideExtensions|wmButtons
+    folders: [-] -frequently,+iconsNotThumbnails/-hideExtensions/+fullpath/showempty
       power: [!] times, plan
-       perf: [-] disable all but (shadows, translucent, contents, smooth font)
-     nvidia: [-] remove icons
+       perf: [-] disable all but (both shadows, translucent, contents, smooth font, drop shadows) (5)
+    startup: [-] disable memory dumps and delete windows/memory.dmp
     devmgmt: [!] stop mice from waking pc
+    recycle: [!] disable on v drive and enable confirmation dialog
+   firewall: [-] allow pulseaudio/vcxsrv on all networks
 -------------------------------------------------------------------------------- [CHROMIUM]
-settings: (account name, search, continue, downloads, -background, -hw)
+settings: (account name, search, continue, downloads, -background, -hw, 90% zoom)
+chrome://settings/cookies (turn on DNT and turn off CLEAR)
 import bookmarks
-set password flag, import, revert flag
-extensions: adblock, disconnect, tampermonkey (share.js), augmented steam, steamdb
+set password flag, import, unset
+extensions: chromewebstore (for ungoogled) adblock, disconnect, tampermonkey (share.js, half of logolink.js), augmented steam, steamdb
 -------------------------------------------------------------------------------- [APPLICATIONS]
-496.49-desktop-win10-win11-64bit-international-dch-whql
-ArchWSL-AppX_20.11.25.0_x64.appx
-ArchWSL-AppX_20.11.25.0_x64.cer
-vcxsrv-64.1.20.9.0.installer.exe
-pulseaudio-1.1.zip
-mini_installer.exe (chromium.woolyss.com)
-npp.8.1.5.Installer.exe (config restore?)
-GoogleDriveSetup.exe (Remove_Google_Drive_context_menu.reg)
-OBS_OpenVR_InputPlugin_v1.11.zip
-OBS-Studio-26.1.1-Full-Installer-x64.exe
+527.56-desktop-win10-win11-64bit-international-dch-whql
+ArchWSL-AppX_22.3.18.0_x64.appx
+ArchWSL-AppX_22.3.18.0_x64.cer
+vcxsrv-64.1.20.14.0.installer.exe, move icon
+pulseaudio-5.0-rev18.zip
+103.0.5060.114_ungoogled_mini_installer.exe
+npp.8.4.9.Installer.x64.exe (normal install with plugins, hide toolbar)
+OBS-Studio-27.2.4-Full-Installer-x64.exe
 OculusSetup.exe
-SideQuest-Setup-0.10.24-x64-win.exe
-SteamSetup.exe (-console -no-browser, BootStrapperInhibitAll=enable\nBootStrapperForceSelfUpdate=disable)
-ViveportSetup.exe
-alvr_server_windows-16.0.0.zip
-alvr_client_oculus_quest-16.0.0.apk
-AdvancedSettings-5.3.2-Installer.exe
-SteamAchievementManager-7.0.25.zip
--------------------------------------------------------------------------------- [CLEANUP]
-C:\Users\byteframe\Documents\steamvr
-C:\ProgramData\HTC\Vive
-C:\ProgramData\HTC\ViveSoftware\Updater
-C:\ProgramData\HTC\ViveSoftware\ViveApps\65d812
-C:\Program Files (x86)\Common Files\HTC\Vita
-C:\Program Files (x86)\VIVE\PCClient\installLog*.txt
-C:\Program Files (x86)\VIVE\Updater\viveNight*.png
-C:\Program Files (x86)\VIVE\Updater\App\VivePair
-C:\Program Files (x86)\VIVE\Updater\App\BIFlush
-C:\Program Files (x86)\VIVE\Updater\App\BTDriverUpdater
-C:\Program Files (x86)\VIVE\Updater\App\Dashboard
-C:\Program Files (x86)\VIVE\Updater\App\Launchers
-C:\Program Files (x86)\VIVE\Updater\Temp
-C:\Program Files (x86)\VIVE\Updater\Meta\*.?
-C:\Program Files (x86)\VIVE\Updater\Uninstall\VIVEEYE_SOFTWARE
-C:\Program Files (x86)\VIVE\Updater\NewUpdater\App
-C:\Program Files (x86)\VIVE\Updater\NewUpdater\Meta
-C:\Program Files (x86)\VIVE\Updater\NewUpdater\Temp
-C:\Users\byteframe\AppData\Local\HTC\MagnetWidget
-C:\Users\byteframe\AppData\Local\HTC\Vive
-C:\Users\byteframe\AppData\Local\HTC\Viveport\Cache
-C:\Users\byteframe\AppData\Local\HTC\Viveport\Download
-C:\Users\byteframe\AppData\Local\HTC\Viveport\WebCache
-C:\Users\byteframe\AppData\Local\HTC\Viveport\VivePortLauncher_*.log.txt
-C:\Users\byteframe\AppData\Local\HTC\Viveport\Logs
-C:\Users\byteframe\AppData\Local\HTC\Viveport\SteamVR
-C:\Users\byteframe\AppData\Local\SteamVR
-C:\Users\byteframe\AppData\Local\Steam\htmlcache
-C:\Users\byteframe\AppData\Local\ToastNotificationManagerCompat
-C:\Users\byteframe\AppData\Local\Temp\*.?
+SteamSetup.exe (-console -nocrashmonitor steam://open/minigameslist, BootStrapperInhibitAll=enable\nBootStrapperForceSelfUpdate=disable, taskmgr disable, public/url_list)
+AdvancedSettings-5.5.0-Installer.exe
+VirtualDesktop.Streamer.Setup.exe
+OBS_OpenVR_InputPlugin_v1.5.zip
+jellyfin_10.8.9_windows-x64.exe
