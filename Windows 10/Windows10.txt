@@ -1,19 +1,17 @@
 ------------------------------------------------------------------------------- [INSTALL]
 Without network, Use local domain signin, Disable telemetry options
-Install Nvidia/Drivers (uninstall nvidia app and disable display container service)
-Enable Network private/public | file/media sharing (set default settings to allow only video)
+537.13-desktop-win10-win11-64bit-international-dch-whql, No Physx/GFE, (uninstall nvidia app and disable display container service), Set 120hz
+Enable Network private/public, set static ip address (192.168.50.100)
 Assign library folders (Documents, D:/Image, D:/Audio, D:/Video)
 Set timezone, format
 Rename ThisPC | Delete favorites/* | Unhide ProgramData, and AppData | hide Perflogs
 Add-AppxPackage -Path "C:\Users\byteframe\Desktop\Microsoft.HEVCVideoExtension_1.0.32022.0_x64.Appx"
-Install WSL/HyperV/VirtualMachinePlatform features ^if needed
+Install HyperV(*)
 Uninstall Internet Explorer 11, Windows Hello Face, and Microsoft Quick Assist, Nvidia/Realtek
 Disable Print Spooler Service
 Host/Workgroup
 powercfg.exe /hibernate off
-powercfg /requestsoverride process wmplayer.exe display system
 powercfg /requestsoverride process steamtours.exe display system
-powercfg /requestsoverride process OVRServer_x64.exe display 
 powercfg /requestsoverride process vrcompositor.exe display 
 powercfg /requestsoverride process vrwebhelper.exe display 
 REGISTRY: Photoviewer.reg + Remove-Folders-From-This-PC-on-Windows-10.reg
@@ -21,9 +19,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\Na
 Update (configure settings below during this time)
 Reboot
 https://gist.github.com/ishad0w/d25ca52eb04dbefba8087a344a69c79c
-wsl_update_x64.msi
-wsl --set-default-version 2
 -------------------------------------------------------------------------------- [SETTINGS]
+   graphics: [+] enable gpu scheduling
 		    cmd: [-] set defaults font to size 14
   developer: [-] install apps from any source
  protection: [-] disable system restore and delete backups
@@ -44,26 +41,40 @@ maintenance: [!] disable wake up
        perf: [-] disable all but (both shadows, translucent, contents, smooth font, drop shadows) (5)
     startup: [-] disable memory dumps and delete windows/memory.dmp
     devmgmt: [!] stop mice from waking pc
-    recycle: [!] disable on v drive and enable confirmation dialog
-   firewall: [-] allow pulseaudio/vcxsrv on all networks
--------------------------------------------------------------------------------- [CHROMIUM]
+-------------------------------------------------------------------------------- [https://github.com/uazo/cromite/releases/tag/v118.0.5993.118-99e6617f72b02b7c0dc555b20657bbdba3ed247f]
 settings: (account name, search, continue, downloads, -background, -hw, 90% zoom)
 chrome://settings/cookies (turn on DNT and turn off CLEAR)
-import bookmarks
-set password flag, import, unset
+import bookmarks, set password flag, import, unset
 extensions: chromewebstore (for ungoogled) adblock, disconnect, tampermonkey (share.js, half of logolink.js), augmented steam, steamdb
--------------------------------------------------------------------------------- [APPLICATIONS]
-527.56-desktop-win10-win11-64bit-international-dch-whql
-ArchWSL-AppX_22.3.18.0_x64.appx
-ArchWSL-AppX_22.3.18.0_x64.cer
-vcxsrv-64.1.20.14.0.installer.exe, move icon
-pulseaudio-5.0-rev18.zip
-103.0.5060.114_ungoogled_mini_installer.exe
-npp.8.4.9.Installer.x64.exe (normal install with plugins, hide toolbar)
-OBS-Studio-27.2.4-Full-Installer-x64.exe
+-------------------------------------------------------------------------------- [WSL]
+wsl-2.0.4.0.x64.msi {REBOOT}
+wsl --set-default-version 2
+"[wsl2]\nguiApplications=false" >> C:\Users\byteframe\.wslconfig
+Arch-22.10.16.0.zip >> c:\users\byteframe\Arch\Arch icon start in = \\wsl.localhost\Arch\home\byteframe
+-------------------------------------------------------------------------------- [PROGRAMS]
+NVIDIA_Inspector_1.9.8.7_Beta\nvidiaInspector.exe -setBaseClockOffset:0,0,120 -setMemoryClockOffset:0,0,1200 -setPowerTarget:0,110 -setTempTarget:0,1,90
+OBS-Studio-29.1.3-Full-Installer-x64.exe `import config from work\media, OBS_OpenVR_InputPlugin_v1.5.zip`
+npp.8.5.6.Installer.x64.exe `normal install with plugins, config ondemand`
+mpv-x86_64-20220710-git-0044c19 `run install.bat as administrator then remove icon`
+SteamDesktopAuthenticator-1.0.13 (from P:/)
+SteamAchievementManager-7.0.25
+jellyfin_10.8.9_windows-x64.exe (set max transcode res to 720p)
+github.com/ysc3839/AudioPlaybackConnector
+source1import-7bd800fe630361db5c691307ee9f21b20f0a7e36.diff
+SideQuest-0.0.10-x64-win.exe `install SQ+ALVR then remove`
+-------------------------------------------------------------------------------- [OCULUS]
 OculusSetup.exe
-SteamSetup.exe (-console -nocrashmonitor steam://open/minigameslist, BootStrapperInhibitAll=enable\nBootStrapperForceSelfUpdate=disable, taskmgr disable, public/url_list)
-AdvancedSettings-5.5.0-Installer.exe
-VirtualDesktop.Streamer.Setup.exe
-OBS_OpenVR_InputPlugin_v1.5.zip
-jellyfin_10.8.9_windows-x64.exe
+TaskSched: OculusHigh.xml + OculusHigh.ps1 (Set-ExecutionPolicy unrestricted)
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /t:exe /out:OculusDash.exe D:\Work\Game\OculusKillerByteframe.cs
+-------------------------------------------------------------------------------- [STEAMVR]
+SteamSetup.exe `install, add 760, disable in taskmgr startup, shortcut=-console -nocrashmonitor steam://open/minigameslist`
+"userinterface" : { "MinimizeToTray" : true, "StatusAlwaysOnTop" : false }
+AppData\Local\openvr\openvrpaths.vrpath={ "log" : [ "c:\\program files (x86)\\steam\\logs\\vr" ] }
+AdvancedSettings-5.5.0-Installer.exe 
+sysdm.cpl environmental variable VPROJECT=1
+-------------------------------------------------------------------------------- [REGEDIT]
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+HKEY_CURRENT_USER\SOFTWARE
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride
+HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify
+HKEY_LOCAL_MACHINE\SOFTWARE
