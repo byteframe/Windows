@@ -1,0 +1,40 @@
+section: screens
+	euclid:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none 
+		switchCornerSize = 0
+	archimedes:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	euclid:
+		right = archimedes
+	archimedes:
+		left = euclid
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = false
+	win32KeepForeground = false
+	clipboardSharing = true
+	switchDelay = 300
+	switchCorners = none 
+	switchCornerSize = 0
+	keystroke(Control+Shift+x) = lockCursorToScreen(toggle)
+end
+
