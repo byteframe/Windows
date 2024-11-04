@@ -1,5 +1,5 @@
 section: screens
-	euclid:
+	steamdeck:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
 		halfDuplexScrollLock = false
@@ -7,6 +7,14 @@ section: screens
 		preserveFocus = false
 		switchCorners = none 
 		switchCornerSize = 0
+	euclid:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none +top-left +bottom-left +bottom-right 
+		switchCornerSize = 25
 	archimedes:
 		halfDuplexCapsLock = false
 		halfDuplexNumLock = false
@@ -21,8 +29,11 @@ section: aliases
 end
 
 section: links
+	steamdeck:
+		right = euclid
 	euclid:
 		right = archimedes
+		left = steamdeck
 	archimedes:
 		left = euclid
 end
@@ -32,6 +43,7 @@ section: options
 	screenSaverSync = false
 	win32KeepForeground = false
 	clipboardSharing = true
+	clipboardSharingSize = 100000000
 	switchDelay = 300
 	switchCorners = none 
 	switchCornerSize = 0

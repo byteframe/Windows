@@ -10,10 +10,12 @@ Host/Workgroup
 powercfg.exe /hibernate off
 REGISTRY: Photoviewer.reg + Remove-Folders-From-This-PC-on-Windows-10.reg
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders\{F5FB2C77-0E2F-4A16-A381-3E560C68BC83} (add minus)
+reg add "HKCU\Software\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d "1" /f
 Update (configure settings below during this time)
 Reboot
 irm https://get.activated.win | iex
 https://github.com/ShadowWhisperer/Remove-MS-Edge
+Get-AppxPackage -AllUsers -PackageTypeFilter Bundle -Name "*Windows.DevHome*" | Remove-AppxPackage -AllUsers
 -------------------------------------------------------------------------------- [SETTINGS]
         cmd: [+] reduce defaults font size to 14
    defender: [+] turn off sample submission and cloud based
@@ -32,6 +34,7 @@ personalize: [*] storm, no trans, show on both accents | black large mouse, desk
      notify: [*] disable notifications and suggestions
    autoplay: [!] disable
    keyboard: [!] disable shortcuts for toggle+sticky+filter keys
+    display: [-] night light schedule
       sound: [-] nosounds/donothingonmic
     folders: [-] -frequently,+iconsNotThumbnails/-hideExtensions/+fullpath/showempty
       power: [!] times, plan, hdd
@@ -40,7 +43,9 @@ personalize: [*] storm, no trans, show on both accents | black large mouse, desk
 -------------------------------------------------------------------------------- [https://github.com/uazo/cromite/releases/tag/v120.0.6099.230-068d09a1ed328898da892e800eec492d8dfcbb3e]
 settings: (account name, search, continue, downloads, -background, -hw, 90% zoom)
 chrome://settings/cookies (turn on DNT and turn off CLEAR)
+chrome://flags/#hardware-media-key-handling (disable)
 import bookmarks, set password flag, import, unset
+Cromite-Default-Browser.zip (https://github.com/uazo/cromite/discussions/628)
 extensions: chromewebstore (for ungoogled) adblock, disconnect, tampermonkey (share.js, half of logolink.js), augmented steam, steamdb
 -------------------------------------------------------------------------------- [PROGRAMS]
 mpv-x86_64-20220710-git-0044c19 `run install.bat as administrator then remove icon`
@@ -49,8 +54,9 @@ OBS-Studio-29.1.3-Full-Installer-x64.exe `import config from work\media`
 npp.8.5.6.Installer.x64.exe `normal install with plugins, 80 colum, 2 space tabs, darkmode, show only filename, default unix LF`
 jellyfin_10.8.9_windows-x64.exe (install as service, allow through firewall)
 https://github.com/ysc3839/AudioPlaybackConnector/releases/tag/v1.3.1
+InputLeap_3.0.1_windows_qt5.exe
 -------------------------------------------------------------------------------- [WSL]
-wsl.2.1.0.0.x64.msi {REBOOT}
+wsl.2.3.24.0.x64.msi {REBOOT}
 wsl --set-default-version 2
 "[wsl2]\nguiApplications=false" >> C:\Users\byteframe\.wslconfig
 Arch-22.10.16.0.zip >> c:\users\byteframe\Arch\Arch icon start in = \\wsl.localhost\Arch\home\byteframe
@@ -62,7 +68,7 @@ powercfg /requestsoverride process vrwebhelper.exe display
 NVIDIA_Inspector_1.9.8.7_Beta\nvidiaInspector.exe -setBaseClockOffset:0,0,120 -setMemoryClockOffset:0,0,1200 -setPowerTarget:0,110 -setTempTarget:0,0,89
 nvidiaProfileInspector-2.4.0.4
 source1import-0.3.12-671a460 + source1import-0-3-12.diff
-SteamAchievementManager-7.0.25
+SteamAchievementManager-7.0.37
 no_vtf-4.2.0
 OculusSetup.exe (ODT: Low,H.265,150/0/0,Quality ~/odt.txt:hidden)
 TaskSched: OculusHigh.xml + C:\Users\byteframe\OculusHigh.ps1 (Set-ExecutionPolicy unrestricted)
@@ -74,3 +80,4 @@ AdvancedSettings-5.8.11-Installer.exe
 sysdm.cpl environmental variable VPROJECT=1
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
