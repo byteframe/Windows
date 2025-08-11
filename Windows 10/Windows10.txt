@@ -40,10 +40,12 @@ personalize: [*] storm, no trans, show on both accents | black large mouse, desk
       power: [!] times, plan, hdd
        perf: [-] disable all but (both shadows, translucent, contents, smooth font, drop shadows) (5)
     startup: [-] disable memory dumps and delete windows/memory.dmp
+  tasksched: [-] disable XblGameSaveTask
 -------------------------------------------------------------------------------- [https://github.com/uazo/cromite/releases/tag/v120.0.6099.230-068d09a1ed328898da892e800eec492d8dfcbb3e]
 settings: (account name, search, continue, downloads, -background, -hw, 90% zoom)
 chrome://settings/cookies (turn on DNT and turn off CLEAR)
 chrome://flags/#hardware-media-key-handling (disable)
+chrome://flags/#enable-extension-autoupdate
 import bookmarks, set password flag, import, unset
 Cromite-Default-Browser.zip (https://github.com/uazo/cromite/discussions/628)
 --disable-features=LockProfileCookieDatabase (https://github.com/yt-dlp/yt-dlp/issues/7271)
@@ -54,10 +56,8 @@ mpv-x86_64-20220710-git-0044c19 `run install.bat as administrator then remove ic
   keep-open
   volume=100
   softvol=yes
-  hwdec=auto
-  save-position-on-quit
+  hwdec=no
   load-unsafe-playlists
-  no-stop-screensaver
 }
 {
   1 set window-scale 1.00
@@ -73,7 +73,6 @@ OBS-Studio-29.1.3-Full-Installer-x64.exe `import config from work\media`
 npp.8.5.6.Installer.x64.exe `normal install with plugins, 80 colum, 2 space tabs, darkmode, show only filename, default unix LF`
 jellyfin_10.8.9_windows-x64.exe (install as service, allow through firewall)
 https://github.com/ysc3839/AudioPlaybackConnector/releases/tag/v1.3.1
-InputLeap_3.0.1_windows_qt5.exe
 -------------------------------------------------------------------------------- [WSL]
 wsl --unregister Arch
 wsl.2.3.24.0.x64.msi {REBOOT}
@@ -85,23 +84,28 @@ OBS_OpenVR_InputPlugin_v1.5.zip
 powercfg /requestsoverride process steamtours.exe display system
 powercfg /requestsoverride process vrcompositor.exe display 
 powercfg /requestsoverride process vrwebhelper.exe display 
-NVIDIA_Inspector_1.9.8.7_Beta\nvidiaInspector.exe -setBaseClockOffset:0,0,120 -setMemoryClockOffset:0,0,1200 -setPowerTarget:0,110 -setTempTarget:0,0,89
-nvidiaProfileInspector-2.4.0.4
+NVIDIA_Inspector_1.9.8.7_Beta\nvidiaInspector.exe -setBaseClockOffset:0,0,120 -setMemoryClockOffset:0,0,1200 -setPowerTarget:0,110 -setTempTarget:0,0,88 && NvidiaInspector.xml TaskSched
 source1import-0.3.12-671a460 + source1import-0-3-12.diff
 SteamAchievementManager-7.0.37
-no_vtf-4.2.0
+Source2Viewer-13.0.4499.0
+no_vtf-windows_x64-5.1.1
 oculus-adb-driver-2.0.zip
 OculusSetup.exe (ODT: Low,H.265,150/0/0,Quality ~/odt.txt:hidden)
 TaskSched: OculusHigh.xml + C:\Users\byteframe\OculusHigh.ps1 (Set-ExecutionPolicy unrestricted)
-C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /t:exe /out:OculusDash.exe D:\Work\Game\OculusKillerByteframe.cs
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe /t:exe /out:OculusDash.exe D:\Work\Game\OculusKillerByteframe.cs (make link to bin folder)
 SteamSetup.exe `install, add 760, disable in taskmgr startup, shortcut="-console -dev -nocrashmonitor"
 "userinterface" : { "MinimizeToTray" : true, "StatusAlwaysOnTop" : false }, "dashboard" : { "allowVRGamepadUI" : false }
 AppData\Local\openvr\openvrpaths.vrpath={ "log" : [ "c:\\program files (x86)\\steam\\logs\\vr" ] }
 AdvancedSettings-5.8.11-Installer.exe
+SideQuest-Setup-0.10.42-x64-win.exe (can shunt to portable after install)
 sysdm.cpl environmental variable VPROJECT=1
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerRequestOverride
 HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders
+HKEY_CURRENT_USER\SOFTWARE
+HKEY_LOCAL_MACHINE\SOFTWARE
+HKEY_CURRENT_USER\SOFTWARE\Valve\VConsole2 SDK
 -------------------------------------------------------------------------------- [VPN]
 https://support.nordvpn.com/hc/en-us/articles/19916965616017-Connect-to-NordVPN-IKEv2-IPSec-on-Windows
 https://www.reddit.com/r/nordvpn/comments/tuj7mk/ikev2_manual_setup_on_windows_client_drops_ipv4/
